@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_ecommerce/bloc/app_theme_bloc.dart';
-import 'package:flutter_ecommerce/components/custom_text.dart';
+import 'package:flutter_ecommerce/components/atoms/custom_text.dart';
 import 'package:flutter_ecommerce/constants/theme.dart';
 
 class SettingsPage extends StatefulWidget {
+  static const String routeName = '/settings';
   const SettingsPage({Key? key}) : super(key: key);
 
   @override
@@ -33,15 +34,15 @@ class _SettingsPageState extends State<SettingsPage> {
                   style: TextStyle(color: Theme.of(context).kTextDark, fontWeight: FontWeight.bold),
                 ),
                 value: _isSwitched,
-                onChanged: (state) {
+                onChanged: (switchState) {
                   setState(() {
-                    _isSwitched = state;
+                    _isSwitched = switchState;
                   });
 
                   if (_isSwitched) {
-                    BlocProvider.of<AppThemeBloc>(context).add(AppThemeEvent(theme: themeDark));
+                    BlocProvider.of<AppThemeBloc>(context).add(const ChangeTheme(isDark: false));
                   } else {
-                    BlocProvider.of<AppThemeBloc>(context).add(AppThemeEvent(theme: themeLight));
+                    BlocProvider.of<AppThemeBloc>(context).add(const ChangeTheme(isDark: true));
                   }
                 });
           },

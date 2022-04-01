@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ecommerce/components/button.dart';
-import 'package:flutter_ecommerce/components/custom_text.dart';
+import 'package:flutter_ecommerce/components/atoms/button.dart';
+import 'package:flutter_ecommerce/components/atoms/custom_text.dart';
 import 'package:flutter_ecommerce/constants/theme.dart';
 import 'package:flutter_ecommerce/pages/shop.dart';
 import 'package:page_transition/page_transition.dart';
 
 class HomePage extends StatefulWidget {
+  static const String routeName = '/';
   const HomePage({Key? key}) : super(key: key);
 
   @override

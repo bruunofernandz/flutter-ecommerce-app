@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ecommerce/components/card_categories.dart';
-import 'package:flutter_ecommerce/components/custom_text.dart';
+import 'package:flutter_ecommerce/components/molecules/card_categories.dart';
+import 'package:flutter_ecommerce/components/atoms/custom_text.dart';
+import 'package:flutter_ecommerce/components/molecules/drawer_option.dart';
 import 'package:flutter_ecommerce/constants/theme.dart';
 import 'package:flutter_ecommerce/pages/settings.dart';
-import 'package:page_transition/page_transition.dart';
 
 class Shop extends StatefulWidget {
+  static const String routeName = '/shop';
+
   const Shop({Key? key}) : super(key: key);
 
   @override
@@ -43,7 +45,7 @@ class _ShopState extends State<Shop> {
           child: Column(
             children: [
               Container(
-                color: const Color(0xFF887BB0),
+                color: const Color(0xFF1DC690),
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 25),
                   child: Column(
@@ -60,7 +62,7 @@ class _ShopState extends State<Shop> {
                                 height: 100,
                                 width: 100,
                                 decoration: BoxDecoration(
-                                    border: Border.all(width: 4, color: Colors.white),
+                                    border: Border.all(width: 4, color: Theme.of(context).kBackgroundColor),
                                     borderRadius: BorderRadius.circular(50),
                                     image: const DecorationImage(
                                         image: AssetImage('assets/images/perfil.jpg'), fit: BoxFit.cover))),
@@ -88,7 +90,7 @@ class _ShopState extends State<Shop> {
                             ),
                             CustomText(
                               title: "alice_jhonson@gmail.com",
-                              style: TextStyle(color: Theme.of(context).kTextDark.withOpacity(0.6), fontSize: 15),
+                              style: TextStyle(color: Theme.of(context).kTextDark.withOpacity(0.8), fontSize: 15),
                             ),
                           ],
                         ),
@@ -97,29 +99,7 @@ class _ShopState extends State<Shop> {
                   ),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 50, horizontal: 25),
-                child: GestureDetector(
-                  onTap: () => Navigator.push(
-                      context, PageTransition(child: const SettingsPage(), type: PageTransitionType.fade)),
-                  child: Row(
-                    children: [
-                      Icon(
-                        Icons.settings,
-                        color: Colors.black.withOpacity(0.5),
-                        size: 25,
-                      ),
-                      const SizedBox(
-                        width: 15,
-                      ),
-                      CustomText(
-                        title: "Settings",
-                        style: TextStyle(color: Theme.of(context).kTextDark, fontSize: 17),
-                      )
-                    ],
-                  ),
-                ),
-              )
+              const DrawerOption(route: SettingsPage()),
             ],
           ),
         ),

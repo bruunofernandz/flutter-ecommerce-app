@@ -1,9 +1,14 @@
 part of 'app_theme_bloc.dart';
 
-class AppThemeState extends Equatable {
-  final ThemeData theme;
-  const AppThemeState({required this.theme});
+enum AppThemeEnum { light, dark, system }
 
+abstract class AppThemeState extends Equatable {
   @override
-  List<Object> get props => [theme];
+  List<AppThemeEnum> get props => [];
 }
+
+class AppThemeInitial extends AppThemeState {}
+
+class LightMode extends AppThemeState {}
+
+class DarkMode extends AppThemeState {}

@@ -1,9 +1,13 @@
 part of 'app_theme_bloc.dart';
 
-class AppThemeEvent extends Equatable {
-  final ThemeData theme;
-  const AppThemeEvent({required this.theme});
+abstract class AppThemeEvent extends Equatable {
+  const AppThemeEvent();
 
   @override
-  List<Object> get props => [theme];
+  List<Object> get props => [];
+}
+
+class ChangeTheme extends AppThemeEvent {
+  final bool isDark;
+  const ChangeTheme({required this.isDark});
 }
