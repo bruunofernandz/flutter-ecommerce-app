@@ -11,3 +11,5 @@ class ChangeTheme extends AppThemeEvent {
   final bool isDark;
   const ChangeTheme({required this.isDark});
 }
+
+class GetTheme extends AppThemeEvent {}

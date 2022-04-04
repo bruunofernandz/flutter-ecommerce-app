@@ -7,7 +7,7 @@ abstract class AppThemeState extends Equatable {
   List<AppThemeEnum> get props => [];
 }
 
-class AppThemeInitial extends AppThemeState {}
+class AppThemeDefault extends AppThemeState {}
 
 class LightMode extends AppThemeState {}
 

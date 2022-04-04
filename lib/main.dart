@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider<AppThemeBloc>(
-        create: (BuildContext context) => AppThemeBloc(LightMode()),
+        create: (BuildContext context) => AppThemeBloc(AppThemeDefault())..add(GetTheme()),
         child: BlocBuilder<AppThemeBloc, AppThemeState>(builder: (context, state) {
           return MaterialApp(
             title: 'Flutter E-commerce App',
