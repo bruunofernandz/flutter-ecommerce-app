@@ -26,9 +26,12 @@ class CardCategorie extends StatelessWidget {
               ])),
           child: Align(
             alignment: Alignment.bottomLeft,
-            child: CustomText(
-              title: title!,
-              style: TextStyle(color: Theme.of(context).kTextLight, fontWeight: FontWeight.bold, fontSize: 15),
+            child: Padding(
+              padding: const EdgeInsets.only(left: 8, bottom: 8),
+              child: CustomText(
+                title: title!,
+                style: TextStyle(color: Theme.of(context).kTextLight, fontWeight: FontWeight.bold, fontSize: 15),
+              ),
             ),
           ),
         ),

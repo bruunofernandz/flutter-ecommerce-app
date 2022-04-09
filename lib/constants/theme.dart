@@ -9,6 +9,7 @@ extension ThemeDataExtension on ThemeData {
   Color get kTypeLight => themeColors.kTypeLight;
   Color get kTextLight => themeColors.kTextLight;
   Color get kTextDark => themeColors.kTextDark;
+  Color get kTypeDark => themeColors.kTypeDark;
 }
 
 final ThemeData themeLight = ThemeData(

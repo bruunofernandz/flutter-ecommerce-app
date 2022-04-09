@@ -14,22 +14,9 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
-  late AnimationController _scaleController;
-  late Animation<double> _scaleAnimation;
-  bool hide = false;
-
   @override
   void initState() {
     super.initState();
-
-    _scaleController = AnimationController(vsync: this, duration: const Duration(milliseconds: 500));
-
-    _scaleAnimation = Tween<double>(begin: 1.0, end: 30.0).animate(_scaleController)
-      ..addStatusListener((status) {
-        if (status == AnimationStatus.completed) {
-          Navigator.push(context, PageTransition(child: const Shop(), type: PageTransitionType.fade));
-        }
-      });
   }
 
   @override
@@ -53,44 +40,45 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                     style: TextStyle(color: Colors.white, fontSize: 40, fontWeight: FontWeight.bold),
                   ),
                   const SizedBox(
-                    height: 16,
+                    height: 4,
                   ),
                   const CustomText(
-                    title: "Let's start with our summer collection",
+                    title: "Do you have a little business ?",
                     textAlign: TextAlign.center,
                     style: TextStyle(color: Colors.white, fontSize: 16),
                   ),
                   const SizedBox(
-                    height: 200,
+                    height: 4,
+                  ),
+                  const CustomText(
+                    title: "Do you want buy of regional sellers ?",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(color: Colors.white, fontSize: 16),
+                  ),
+                  const SizedBox(
+                    height: 100,
                   ),
                   InkWell(
                     onTap: () {
-                      setState(() {
-                        hide = true;
-                      });
-                      _scaleController.forward();
+                      Navigator.push(context, PageTransition(child: const Shop(), type: PageTransitionType.fade));
                     },
-                    child: AnimatedBuilder(
-                      animation: _scaleController,
-                      builder: (context, child) => Transform.scale(
-                        scale: _scaleAnimation.value,
-                        child: Button(
-                          title: "Get Start",
-                          color: Colors.white,
-                          hide: hide,
-                          textStyle: TextStyle(fontWeight: FontWeight.bold, color: Theme.of(context).kPrimaryColor),
-                        ),
-                      ),
+                    child: CustomButton(
+                      title: "Get Start",
+                      boxDecoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(50), color: Theme.of(context).kPrimaryColor),
+                      textStyle: const TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
                     ),
                   ),
                   const SizedBox(
-                    height: 30,
+                    height: 20,
                   ),
-                  const Button(
+                  CustomButton(
                     title: "Create Account",
-                    hide: false,
-                    color: Colors.transparent,
-                    textStyle: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
+                    boxDecoration: BoxDecoration(
+                        border: Border.all(color: Colors.white),
+                        borderRadius: BorderRadius.circular(50),
+                        color: Colors.transparent),
+                    textStyle: const TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
                   ),
                   const SizedBox(
                     height: 30,
