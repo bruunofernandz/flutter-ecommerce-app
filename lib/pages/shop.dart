@@ -8,7 +8,7 @@ import 'package:flutter_ecommerce/constants/theme.dart';
 import 'package:flutter_ecommerce/pages/settings.dart';
 
 class Shop extends StatefulWidget {
-  static const String routeName = '/shop';
+  static const String routeName = '/home';
 
   const Shop({Key? key}) : super(key: key);
 
@@ -45,29 +45,6 @@ class _ShopState extends State<Shop> {
     return Scaffold(
         key: _globalKey,
         backgroundColor: Theme.of(context).kBackgroundColor,
-        bottomNavigationBar: BottomNavigationBar(
-          backgroundColor: Theme.of(context).kBackgroundColor.withOpacity(0.9),
-          elevation: 16,
-          currentIndex: 0,
-          items: [
-            BottomNavigationBarItem(
-              icon: Icon(
-                Icons.home,
-                color: Theme.of(context).kPrimaryColor,
-              ),
-              label: "Home",
-            ),
-            const BottomNavigationBarItem(
-                icon: Icon(
-                  Icons.search,
-                  color: Color(0xFF666666),
-                ),
-                label: "Search"),
-            const BottomNavigationBarItem(
-                icon: Icon(Icons.shopping_cart_outlined, color: Color(0xFF666666)), label: "Cart"),
-            const BottomNavigationBarItem(icon: Icon(Icons.settings, color: Color(0xFF666666)), label: "Settings"),
-          ],
-        ),
         drawer: Drawer(
           child: drawerContent(context),
         ),
@@ -102,42 +79,40 @@ class _ShopState extends State<Shop> {
                 const SizedBox(
                   height: 16,
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 8),
-                  child: CarouselSlider(
-                    carouselController: _controller,
-                    options: CarouselOptions(
-                        height: 162.0,
-                        viewportFraction: 1.0,
-                        enableInfiniteScroll: false,
-                        onPageChanged: (index, reason) {
-                          setState(() {
-                            _current = index;
-                          });
-                        }),
-                    items: [1, 2, 3, 4, 5].map((i) {
-                      return Builder(
-                        builder: (BuildContext context) {
-                          return Container(
-                            width: 375,
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10.0),
-                                image: const DecorationImage(
-                                    image: AssetImage("assets/images/fone.jpg"), fit: BoxFit.cover)),
-                            // child: Container(
-                            //   padding: const EdgeInsets.all(10),
-                            //   decoration: BoxDecoration(
-                            //       borderRadius: BorderRadius.circular(10.0),
-                            //       gradient: LinearGradient(begin: Alignment.bottomRight, colors: [
-                            //         Colors.black.withOpacity(.7),
-                            //         Colors.black.withOpacity(.0),
-                            //       ])),
-                            // ),
-                          );
-                        },
-                      );
-                    }).toList(),
-                  ),
+                CarouselSlider(
+                  carouselController: _controller,
+                  options: CarouselOptions(
+                      height: 162.0,
+                      autoPlay: true,
+                      viewportFraction: 1.0,
+                      enableInfiniteScroll: false,
+                      onPageChanged: (index, reason) {
+                        setState(() {
+                          _current = index;
+                        });
+                      }),
+                  items: [1, 2, 3, 4, 5].map((i) {
+                    return Builder(
+                      builder: (BuildContext context) {
+                        return Container(
+                          width: 325,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10.0),
+                              image: const DecorationImage(
+                                  image: AssetImage("assets/images/fone.jpg"), fit: BoxFit.cover)),
+                          // child: Container(
+                          //   padding: const EdgeInsets.all(10),
+                          //   decoration: BoxDecoration(
+                          //       borderRadius: BorderRadius.circular(10.0),
+                          //       gradient: LinearGradient(begin: Alignment.bottomRight, colors: [
+                          //         Colors.black.withOpacity(.7),
+                          //         Colors.black.withOpacity(.0),
+                          //       ])),
+                          // ),
+                        );
+                      },
+                    );
+                  }).toList(),
                 ),
                 const SizedBox(
                   height: 16,
@@ -224,7 +199,7 @@ class _ShopState extends State<Shop> {
                   height: 16,
                 ),
                 SizedBox(
-                  height: 25,
+                  height: 30,
                   child: ListView(
                     scrollDirection: Axis.horizontal,
                     padding: const EdgeInsets.only(left: 32),

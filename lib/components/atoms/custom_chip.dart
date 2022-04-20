@@ -10,8 +10,7 @@ class CustomChip extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 110,
-      height: 25,
+      width: 100,
       decoration: selected
           ? BoxDecoration(color: const Color(0xFF1DC690), borderRadius: BorderRadius.circular(50))
           : BoxDecoration(border: Border.all(color: const Color(0xFF666666)), borderRadius: BorderRadius.circular(50)),
