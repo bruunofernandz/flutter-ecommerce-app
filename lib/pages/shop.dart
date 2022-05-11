@@ -84,7 +84,7 @@ class _ShopState extends State<Shop> {
                   options: CarouselOptions(
                       height: 162.0,
                       autoPlay: true,
-                      viewportFraction: 1.0,
+                      viewportFraction: 0.88,
                       enableInfiniteScroll: false,
                       onPageChanged: (index, reason) {
                         setState(() {
@@ -117,25 +117,25 @@ class _ShopState extends State<Shop> {
                 const SizedBox(
                   height: 16,
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [1, 2, 3, 4, 5].asMap().entries.map((entry) {
-                    return GestureDetector(
-                      onTap: () => _controller.animateToPage(entry.key),
-                      child: Container(
-                        width: 12.0,
-                        height: 12.0,
-                        margin: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 4.0),
-                        decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: _current == entry.key
-                                ? Theme.of(context).kPrimaryColor
-                                : (Theme.of(context).brightness == Brightness.dark ? Colors.white : Colors.black)
-                                    .withOpacity(_current == entry.key ? 0.9 : 0.4)),
-                      ),
-                    );
-                  }).toList(),
-                ),
+                // Row(
+                //   mainAxisAlignment: MainAxisAlignment.center,
+                //   children: [1, 2, 3, 4, 5].asMap().entries.map((entry) {
+                //     return GestureDetector(
+                //       onTap: () => _controller.animateToPage(entry.key),
+                //       child: Container(
+                //         width: 12.0,
+                //         height: 12.0,
+                //         margin: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 4.0),
+                //         decoration: BoxDecoration(
+                //             shape: BoxShape.circle,
+                //             color: _current == entry.key
+                //                 ? Theme.of(context).kPrimaryColor
+                //                 : (Theme.of(context).brightness == Brightness.dark ? Colors.white : Colors.black)
+                //                     .withOpacity(_current == entry.key ? 0.9 : 0.4)),
+                //       ),
+                //     );
+                //   }).toList(),
+                // ),
                 const SizedBox(
                   height: 16,
                 ),
@@ -145,7 +145,7 @@ class _ShopState extends State<Shop> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       CustomText(
-                        title: "Best sellers category",
+                        title: "Favorites",
                         style: TextStyle(color: Theme.of(context).kTextDark, fontSize: 16, fontWeight: FontWeight.bold),
                       ),
                       CustomText(

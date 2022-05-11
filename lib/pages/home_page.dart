@@ -50,6 +50,10 @@ class _HomePageState extends State<HomePage> {
               icon: Icon(Icons.settings,
                   color: _selectedIndex == 3 ? Theme.of(context).kPrimaryColor : const Color(0xFF666666)),
               label: ""),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.favorite,
+                  color: _selectedIndex == 4 ? Theme.of(context).kPrimaryColor : const Color(0xFF666666)),
+              label: ""),
         ],
       ),
       body: screen(_selectedIndex),
@@ -60,9 +64,9 @@ class _HomePageState extends State<HomePage> {
 screen(int index) {
   if (index == 0) {
     return const Shop();
-  }
-
-  if (index == 1) {
+  } else if (index == 1) {
     return const SearchPage();
+  } else {
+    return const Center(child: Text("Nothing here...for while"));
   }
 }
